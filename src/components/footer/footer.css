@@ -1,0 +1,20 @@
+.footer{
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(10,10,10,1) 0%, rgba(61,61,61,0.8491771708683473) 100%);
+}
+.footer__img{
+   width: 50px;
+   height: 50px;
+}
+.footer__img-git{
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 60px;
+}
+.footer__menu{
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 20px;
+}
