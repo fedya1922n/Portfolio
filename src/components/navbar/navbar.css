@@ -1,0 +1,270 @@
+
+.navbar {
+    background: linear-gradient(90deg, rgba(61,61,61,1) 0%, rgba(0,0,0,1) 100%);
+    padding: 20px;
+}
+
+.navbar__title {
+    font-size: 40px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.navbar__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__input {
+    width: 90%;
+    padding: 10px;
+    transition: all 0.3s ease;
+    background: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.navbar__form-del {
+    background: #006ef0;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.navbar__form-del:hover {
+    background: #02bbf6;
+    transition: 0.3s;
+}
+
+.navbar__about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.navbar__about-title {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.navbar__about-img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.navbar__about-me {
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+
+.content-search {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content__card-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.content__card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.content__card-title {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    text-align: center;
+    color: #000;
+}
+
+.content__card-desc {
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.content__card-a {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.content__card-a:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 1200px) {
+    .navbar__about {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navbar__about-img {
+        max-width: 300px;
+    }
+
+    .navbar__about-title {
+        font-size: 16px;
+        width: 100%;
+    }
+}
+@media (max-width: 900) {
+
+}
+@media (max-width: 768px) {
+    .navbar__title {
+        font-size: 32px;
+    }
+
+    .navbar__input {
+       width: 500px;
+        font-size: 14px;
+    }
+
+    .content__card {
+        width: 90%;
+    }
+
+    .content__card-title {
+        font-size: 1rem;
+    }
+
+    .content__card-desc {
+        font-size: 0.8rem;
+    }
+
+    .content__card-a {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar__title {
+        font-size: 24px;
+    }
+    .navbar__input{
+        width: 300px;
+    }
+    .navbar__about-title {
+        font-size: 14px;
+        width: 300px;
+    }
+
+    .content__card {
+        max-width: 300px;
+        width: 100%;
+    }
+    .navbar{
+     width: 100%;
+    }
+}
+@media (max-width: 400px) {
+    .navbar__title {
+        font-size: 20px;
+    }
+    .navbar__about-title {
+        font-size: 12px;
+    }
+
+    .navbar__about-img {
+        max-width: 250px;
+    }
+
+    .content__card {
+        width: 100%;
+    }
+
+    .content__card-title {
+        font-size: 0.9rem;
+    }
+    .navbar__input{
+       width: 200px;
+    }
+    .content__card-desc {
+        font-size: 0.7rem;
+    }
+
+    .content__card-a {
+        font-size: 0.7rem;
+    }
+}
+@media (max-width: 340px) {
+    .navbar__input{
+        opacity: 0;
+    }
+    .content__card {
+        width: 200px;
+    }
+}
+@media (max-width: 299px) {
+    .navbar__title {
+        font-size: 18px;
+    }
+
+    .navbar__about-title {
+        font-size: 10px;
+    }
+
+    .navbar__about-img {
+        max-width: 200px;
+    }
+    .content__card {
+    max-width: 200px;
+width: 100%;
+    }
+    .content__card {
+        width: 100%;
+    }
+
+    .content__card-title {
+        font-size: 0.8rem;
+    }
+
+    .content__card-desc {
+        font-size: 0.6rem;
+    }
+
+    .content__card-a {
+        font-size: 0.6rem;
+    }
+}
