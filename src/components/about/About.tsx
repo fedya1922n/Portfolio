@@ -11,6 +11,7 @@ const skills: Skill[] = [
   { name: "JavaScript", level: 50 },
   { name: "CSS", level: 80 },
   { name: "HTML", level: 85 },
+  {name: "TypeScript", level: 40}
 ];
 
 const About: React.FC = () => {

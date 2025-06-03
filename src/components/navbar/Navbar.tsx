@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react';
 import "./navbar.css";
-import { aboutImg, AirpodsImg, DBurgerImg, gitImg, GoTripImg, GraysonImg, ParallaxImg, SilverHouse, VUEimg, WebShop, Films, Weather } from '../../assets/image';
+import { aboutImg,  DBurgerImg, gitImg,  GraysonImg, VUEimg, WebShop, Films, Weather, foodShop } from '../../assets/image';
 
 interface Work {
   id: number;
@@ -62,6 +62,13 @@ const Navbar: React.FC = () => {
              img:  Weather,
              link: 'https://fedya1922n.github.io/Weather/',
            },
+           {
+                    id: 8,
+                 title: "Food-Shop",
+                 desc: "Интернет продуктовый магазин с полной сменой языка и с учетом конверсии монет корзины и т.е.",
+                 img: foodShop,
+                 link: "https://fedya1922n.github.io/Food-Shop/",
+               }
   ]);
 
   const filteredWorks = works.filter((elem) =>
@@ -110,7 +117,7 @@ const Navbar: React.FC = () => {
       <div className="navbar__about">
         <img src={aboutImg} alt="about me" className="navbar__about-img" />
         <h3 className="navbar__about-title">
-          Здравствуйте! Меня зовут Федя, и я — начинающий фронтенд-разработчик, специализирующийся на создании интерактивных и визуально привлекательных сайтов. Я уже освоил основные технологии веб-разработки, такие как HTML, CSS, JavaScript, и продолжаю углублять знания в React.
+          Здравствуйте! Меня зовут Фирдавс, и я — начинающий фронтенд-разработчик, специализирующийся на создании интерактивных и визуально привлекательных сайтов. Я уже освоил основные технологии веб-разработки, такие как HTML, CSS, JavaScript, и продолжаю углублять знания в React.
           Мое внимание к деталям и стремление создавать удобные и эффективные интерфейсы позволяют мне создавать проекты, которые не только выглядят стильно, но и работают безупречно. Я всегда стараюсь решать задачи с функциональной точки зрения и уделяю особое внимание улучшению пользовательского опыта.
           Когда я не работаю над проектами, я активно развиваюсь в программировании, стараясь учиться у опытных специалистов и не бояться экспериментов.
           Моя цель — продолжать совершенствовать свои навыки, развиваться в сфере веб-разработки и искать интересные и инновационные решения для будущих проектов. Я всегда открыт для новых возможностей и готов к сотрудничеству.
