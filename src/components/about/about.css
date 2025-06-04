@@ -2,8 +2,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(90deg, rgba(10, 10, 10, 1) 39%, rgba(61, 61, 61, 1) 100%);
   color: #fff;
+  height: 100%;
+      background: linear-gradient(90deg, rgba(61,61,61,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .container {
@@ -11,7 +12,12 @@ body {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -19,7 +25,6 @@ h2 {
   margin-bottom: 40px;
   color: #fff;
 }
-
 
 .about__section-title {
   font-size: 35px;
@@ -59,16 +64,30 @@ h2 {
   font-size: 16px;
   line-height: 1.5;
   margin-top: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about__desc.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about__desc-title {
   font-size: 25px;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card {
@@ -82,6 +101,8 @@ h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -116,6 +137,7 @@ h2 {
   line-height: 1.5;
   text-align: justify;
   flex-grow: 1;
+  max-width: 100%;
 }
 
 .card__a {
@@ -141,20 +163,60 @@ h2 {
 }
 
 
-.card {
+.card.card-animation-1 {
   opacity: 0;
-  animation: fadeIn 2s ease forwards;
+  transform: translateX(-100px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card.card-animation-2 {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.card-animation-3 {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.card-animation-4 {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.card-animation-5 {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.card-animation-6 {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.card-animation-7 {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+}
+
+.about {
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  flex-grow: 1;
+  box-sizing: border-box;
+  overflow-x: hidden; 
 }
 
 @media (max-width: 768px) {
@@ -174,41 +236,30 @@ h2 {
     padding: 8px 15px;
     font-size: 0.9rem;
   }
-}
 
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(90deg, rgba(10, 10, 10, 1) 39%, rgba(61, 61, 61, 1) 100%);
-  color: #fff;
-  height: 100%;
-}
+  .card.card-animation-1,
+  .card.card-animation-3,
+  .card.card-animation-5,
+  .card.card-animation-7 {
+    transform: translateX(-50px);
+  }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 100%;
-  box-sizing: border-box;
-}
+  .card.card-animation-2,
+  .card.card-animation-4,
+  .card.card-animation-6 {
+    transform: translateY(-50px);
+  }
 
-.about {
-  padding-left: 50px;
-  padding-right: 20px; 
-  width: 100%;
-  flex-grow: 1;
-  box-sizing: border-box;
+  .card.visible {
+    transform: translateX(0) translateY(0);
+  }
 }
 
 @media (max-width: 550px) {
   .about {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
   }
 
   .container {
@@ -226,21 +277,21 @@ body {
   }
 
   .about__skills {
-    width: 100%; 
+    width: 100%;
   }
+
   .card__desc {
     text-align: center;
   }
 }
+
 @media (max-width: 299px) {
-  .content{
-max-width: 300px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+  .content {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 }
-

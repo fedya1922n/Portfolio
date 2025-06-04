@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import "./about.css";
 import { DBurgerImg, gitImg, GraysonImg, WebShop, Films, Weather, foodShop } from '../../assets/image';
-
 
 interface Work {
   id: number;
@@ -56,7 +56,7 @@ const MyProjects: React.FC = () => {
       link: "https://fedya1922n.github.io/Weather/",
     },
     {
-         id: 7,
+      id: 7,
       title: "Food-Shop",
       desc: "Интернет продуктовый магазин с полной сменой языка и с учетом конверсии монет корзины и т.е.",
       img: foodShop,
@@ -64,12 +64,49 @@ const MyProjects: React.FC = () => {
     }
   ]);
 
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(works.map(() => false));
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.indexOf(entry.target as HTMLDivElement);
+            if (index !== -1) {
+              setVisibleCards((prev) => {
+                const newVisible = [...prev];
+                newVisible[index] = true;
+                return newVisible;
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    cardRefs.current.forEach((card) => {
+      if (card) observer.observe(card);
+    });
+
+    return () => {
+      cardRefs.current.forEach((card) => {
+        if (card) observer.unobserve(card);
+      });
+    };
+  }, []);
+
   return (
     <div className="container">
       <h2>Мои работы</h2>
       <div className="content">
-        {works.map((work) => (
-          <div className="card" key={work.id}>
+        {works.map((work, index) => (
+          <div
+            className={`card ${visibleCards[index] ? "visible" : ""} card-animation-${index + 1}`}
+            key={work.id}
+            ref={(el) => { cardRefs.current[index] = el; }}
+          >
             <img src={work.img} alt={work.title} />
             <h3>{work.title}</h3>
             <p className="card__desc">{work.desc}</p>
